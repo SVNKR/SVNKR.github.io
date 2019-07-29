@@ -1,0 +1,112 @@
+<html>
+	<head>
+	<script type = "text/javascript" src = "drag.js" ></script>
+	<script type = "text/javascript" src = "resize.js" ></script>
+		<style>
+		#mydiv {
+		  position: absolute;
+		  z-index: 15;
+		  background-color: #2196F3;
+		  color: #fff;
+		  cursor: move;
+		  text-align: center;
+		  border: 1px solid #d3d3d3;
+		  width: 25%;
+		  height: 10%;
+
+		}
+
+		#parentDiv {
+		position: absolute;
+			border: 1px solid #000000;
+			height: 500px;
+			width: 800px;
+			top: 100px;
+			left: 200px;
+		}
+
+		.rotate-90{
+			transform: rotate(90deg);
+		}
+
+		.rotate-180{
+			transform: rotate(180deg);
+		}
+
+		.rotate-270{
+			transform: rotate(270deg);
+		}
+
+		.resizer{
+               
+                }
+
+        .resizer-top-left {
+			width: 10px;
+                height: 10px;
+                border-radius: 50%; /*magic to turn square into circle*/
+                background: white;
+                border: 3px solid #4286f4;
+                position: absolute;
+                left: -5px;
+                top: -5px;
+                cursor: nwse-resize; /*resizer cursor*/
+                }
+        .resizer-top-right {
+			width: 10px;
+                height: 10px;
+                border-radius: 50%; /*magic to turn square into circle*/
+                background: white;
+                border: 3px solid #4286f4;
+                position: absolute;
+                right: -5px;
+                top: -5px;
+                cursor: nwse-resize;
+                }
+        .resizer-bottom-left {
+			width: 10px;
+                height: 10px;
+                border-radius: 50%; /*magic to turn square into circle*/
+                background: white;
+                border: 3px solid #4286f4;
+                position: absolute;
+                left: -5px;
+                bottom: -5px;
+                cursor: nwse-resize;
+                }
+        .resizer-bottom-right {
+			width: 10px;
+                height: 10px;
+                border-radius: 50%; /*magic to turn square into circle*/
+                background: white;
+                border: 3px solid #4286f4;
+                position: absolute;
+                right: -5px;
+                bottom: -5px;
+                cursor: nwse-resize;
+                }
+		</style>
+		
+	</head>
+	
+	<body onload="initialise('mydiv')">
+
+	<h1>Draggable DIV Element</h1>
+	<div id="test1"></div>
+	<select id="rotationSelect" onchange="changeRotation(this.value)">
+		<option value="0">0</option>
+		<option value="90">90</option>
+		<option value="180">180</option>
+		<option value = "270">270</option>
+	</select>
+
+	<div id="parentDiv">
+		<div id="mydiv">	  
+		  <img id="image1" src="./transform.png" style="position: absolute; height:100%; width:100%; top:0%; left: 0%;">
+		  <div id = "resizer" class='resizer-bottom-right'></div>
+		</img>
+		</div>
+	</div>
+
+	</body>
+</html>
