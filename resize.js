@@ -82,19 +82,20 @@ function changeRotation(value) {
 	function Resize0deg(e) {       
         const width = original_width + (e.clientX - startX);
         const height = original_height + (e.clientY - startY);
-        if (width < max_width) {
+        if (width < max_width && width > 20) {
             element.style.width = width + 'px';
         }
-        if (height < max_height) {
+        if (height < max_height && height > 20) {
             element.style.height = height + 'px';
         }
     }
     
     function Resize90deg(e) {
         const top = original_offsettop - (e.clientX - startX);
-        if(top > 0) {   
-            const width = original_width + (e.clientY - startY);
-            const height = original_height + (e.clientX - startX);
+        const width = original_width + (e.clientY - startY);
+        const height = original_height + (e.clientX - startX);
+        if(top > 0 && width > 20 && height> 20) {   
+            
             element.style.width = width + 'px';
             element.style.height = height + 'px';
             element.style.top = top + 'px';
@@ -107,7 +108,7 @@ function changeRotation(value) {
         const height = original_height + (e.clientY - startY);
         const top = original_offsettop - (e.clientY - startY);
         const left = original_offsetleft - (e.clientX - startX);
-        if(top > 0 && left > 0) {
+        if(top > 0 && left > 0  && width > 20 && height> 20) {
             element.style.width = width + 'px';
             element.style.left = left + 'px';
             element.style.height = height + 'px';
@@ -119,7 +120,7 @@ function changeRotation(value) {
         const left = original_offsetleft - (e.clientY - startY);
         const height = original_height + (e.clientX - startX);
         const width = original_width + (e.clientY - startY);
-        if(left > 0 && (original_offsettop + height) < parent_height) {
+        if(left > 0 && (original_offsettop + height) < parent_height  && width > 20 && height> 20) {
             element.style.height = height + 'px';
             element.style.width = width + 'px';
             element.style.left = left + 'px';
